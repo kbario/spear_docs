@@ -6,9 +6,9 @@ export default defineConfig({
   site: "https://spear_nvim.kbar.io",
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "spear.nvim docs",
       social: {
-        github: "https://github.com/withastro/starlight",
+        github: "https://github.com/kbario/spear.nvim",
       },
       sidebar: [
         {
