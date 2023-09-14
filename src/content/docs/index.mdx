@@ -16,21 +16,25 @@ hero:
       icon: external
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Next steps
+## Let separtion of concern make you blazingly fast
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Effortless" icon="star">
+		Moving within a folder has never been easier
+		<LinkCard title="Check out how!" href="/guides/authoring-content/" />
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Customisable" icon="pen">
+		Make each key do what you want, when you want
+		<LinkCard title="See configuration" href="/guides/authoring-content/" />
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="LSP and Filetype Dependent" icon="setting">
+		Configure to move to different files based on the LSPs attached
+		<LinkCard title="View recipes" href="/guides/authoring-content/" />
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Better together" icon="rocket">
+		Integrate seemlessly with other plugins like harpoon for even more blazingly fastness
+		<LinkCard title="Use with Harpoon!" href="/guides/authoring-content/" />
 	</Card>
 </CardGrid>

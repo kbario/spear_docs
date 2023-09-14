@@ -12,6 +12,27 @@ export default defineConfig({
       },
       sidebar: [
         {
+          label: "Motivation",
+          items: [
+            { label: "the problem", link: "" },
+            { label: "the solution", link: "" },
+          ],
+        },
+        {
+          label: "Installation",
+          items: [
+            { label: "Packer", link: "" },
+            { label: "lazy", link: "" },
+          ],
+        },
+        {
+          label: "Setup",
+          items: [
+            { label: "defaults", link: "" },
+            { label: "init", link: "" },
+          ],
+        },
+        {
           label: "Guides",
           items: [
             // Each item here is one entry in the navigation menu.
