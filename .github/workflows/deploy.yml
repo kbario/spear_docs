@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: dev
-      url: 'http://spear-dev.kbar.io'
+      url: 'https://spear-dev.kbar.io'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
