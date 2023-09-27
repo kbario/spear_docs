@@ -1,0 +1,57 @@
+---
+title: Setup
+---
+
+import {MatchPref} from '../../../components/MatchPref.tsx'
+
+Spear requires limited setup and the defaults should serve you well if you are
+just looking to get started.
+
+If you would like to turn off print info and errors, or if you would like to 
+save files as you navigate and change the way spear matches paths then you can
+update this
+
+## Match Preference (match_pref)
+
+```lua
+first (default) -- Go to the first matched extension regardless of current file
+next -- Go to the first matched extension, unless that is the current file, then go to the next
+```
+
+This setting controls the behaviour when you have multiple extensions mapped to 
+the same key like: `spear({ ".ts", "_helper.ts" })`
+
+
+### first (Default)
+
+First tries to navigate to a file matching the first extension in the list.
+If you are already in that file, then you stay where you are.
+It loops through the provided extensions until it has found one or there are no more.
+
+So if you have the following config and folder, pressing `f` will take you to 
+main.ts and nowhere else.
+
+```lua
+spear_bind('f', { ".ts", "_helper.ts" }, { match_pref: "first" })
+spear_bind('d', ".html")
+spear_bind('s', ".css")
+spear_bind('a', ".spec.ts")
+```
+
+<MatchPref client:idle matchPref='first' />
+
+### next
+
+Next on the otherhand will loop through the extensions, and if you are in the file it matches first, will move onto the next extension.
+
+So if you have the following config and folder, pressing `f` will swap between main.ts and main_helper.ts. 
+
+```lua
+spear_bind('f', { ".ts", "_helper.ts" }, { match_pref: "next" })
+spear_bind('d', ".html")
+spear_bind('s', ".css")
+spear_bind('a', ".spec.ts")
+```
+
+<MatchPref client:idle matchPref='swap' />
+

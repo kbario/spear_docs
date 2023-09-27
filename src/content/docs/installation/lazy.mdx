@@ -1,0 +1,29 @@
+---
+title: lazy.nvim
+prev: 
+  link: /installation
+  label: Installation
+next:
+  link: /setup
+  label: Setup
+---
+
+
+## Base Configuration
+
+```lua
+  {
+    "kbario/spear.nvim",
+    -- spear currently requires plenary for reliable file path manipulation
+    dependencies = { "nvim-lua/plenary.nvim" },
+    -- if you want to override the defaults, provide options
+    opts = { ... }, 
+    -- else tell lazy to call init
+    config = true, 
+  }
+```
+
+checkout the docs [here](https://github.com/folke/lazy.nvim) for more info, 
+specifically, those used above:
+- [opts](https://github.com/folke/lazy.nvim#-plugin-spec)
+- [config](https://github.com/folke/lazy.nvim#-plugin-spec)

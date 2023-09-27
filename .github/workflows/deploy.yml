@@ -4,7 +4,9 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
   push:
-    branches: [main]
+    branches: 
+      - main
+      - dev
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
@@ -27,11 +29,24 @@ jobs:
         # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
         # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
-  deploy:
+  dev-deploy:
     needs: build
+    if: github.event.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
+      name: dev
+      url: 'http://spear-dev.kbar.io'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
+  prod-deploy:
+    needs: build
+    if: github.event.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: prod 
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
